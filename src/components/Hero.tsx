@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 py-32 text-center animate-fade-in">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
           <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">Patent-Holding Engineers | Ex-FAANG Scale</span>
+          <span className="text-sm font-medium text-primary">Multiple Patent Holder | Ex-FAANG Scale</span>
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
@@ -58,8 +58,8 @@ const Hero = () => {
             <div className="text-muted-foreground">User systems deployed</div>
           </div>
           <div className="animate-counter-up" style={{ animationDelay: '0.4s' }}>
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">Patent Published</div>
-            <div className="text-muted-foreground">Ad-Personalisation using Graphs at Scale</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">Multiple Patents</div>
+            <div className="text-muted-foreground">Including Ad-Personalisation at Scale</div>
           </div>
         </div>
       </div>

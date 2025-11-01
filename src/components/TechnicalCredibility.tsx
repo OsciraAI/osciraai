@@ -4,7 +4,7 @@ const TechnicalCredibility = () => {
   const credentials = [
     {
       icon: Award,
-      text: "Patent Published: Ad-Personalisation using Graphs at Scale"
+      text: "Multiple Patents Published including Ad-Personalisation using Graphs at Scale"
     },
     {
       icon: BookOpen,

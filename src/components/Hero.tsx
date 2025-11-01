@@ -34,7 +34,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-          From stealth-mode MVP to 500k QPS. Battle-tested data scientists who've scaled systems to 100M+ users.
+          Engineers with experience building 0-to-1 data science and real-time ML models. Collaborated with SWE teams to build 100k QPS services serving 100M+ users.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -51,15 +51,15 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="animate-counter-up">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">&lt;100ms</div>
-            <div className="text-muted-foreground">Response time at 500k QPS</div>
+            <div className="text-muted-foreground">Response time at 100k QPS</div>
           </div>
           <div className="animate-counter-up" style={{ animationDelay: '0.2s' }}>
             <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">100M+</div>
             <div className="text-muted-foreground">User systems deployed</div>
           </div>
           <div className="animate-counter-up" style={{ animationDelay: '0.4s' }}>
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">Patent-Pending</div>
-            <div className="text-muted-foreground">Ad recommendation approaches</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">Patent Published</div>
+            <div className="text-muted-foreground">Ad-Personalisation using Graphs at Scale</div>
           </div>
         </div>
       </div>

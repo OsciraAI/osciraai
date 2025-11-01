@@ -4,7 +4,7 @@ const TechnicalCredibility = () => {
   const credentials = [
     {
       icon: Award,
-      text: "Patents in Ad Recommendation Systems"
+      text: "Patent Published: Ad-Personalisation using Graphs at Scale"
     },
     {
       icon: BookOpen,
@@ -16,7 +16,7 @@ const TechnicalCredibility = () => {
     },
     {
       icon: Zap,
-      text: "Sub-100ms latency at 500k QPS in production"
+      text: "Sub-100ms latency at 100k QPS in production"
     }
   ];
 

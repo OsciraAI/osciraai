@@ -2,7 +2,7 @@ import { AlertCircle, TrendingUp, Target } from "lucide-react";
 
 const ProblemStatement = () => {
   const stats = [
-    { icon: AlertCircle, value: "<100ms", label: "Response time at 500k QPS", color: "text-primary" },
+    { icon: AlertCircle, value: "<100ms", label: "Response time at 100k QPS", color: "text-primary" },
     { icon: TrendingUp, value: "100M+", label: "User systems deployed", color: "text-secondary" },
     { icon: Target, value: "Revenue-driving", label: "ML, not science experiments", color: "text-accent" },
   ];

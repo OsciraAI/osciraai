@@ -17,7 +17,7 @@ const CaseStudies = () => {
       title: "Search Contextuality Enhancement",
       challenge: "High rate of out-of-context search results degrading user experience",
       solution: "Developed novel contextual understanding system with multi-stage ranking",
-      impact: ["Search relevance from 30% to 85%", "Patent-pending approach", "50% reduction in zero-result queries"]
+      impact: ["Search relevance from 30% to 85%", "Patent published approach", "50% reduction in zero-result queries"]
     },
     {
       icon: BarChart3,
@@ -25,7 +25,7 @@ const CaseStudies = () => {
       title: "Dynamic Product Recommendations",
       challenge: "Static product rankings failing to balance UX and business goals",
       solution: "Built real-time recommendation engine with revenue-awareness and A/B testing framework",
-      impact: ["35% increase in average order value", "20% improvement in conversion", "Scalable to 500k QPS"]
+      impact: ["35% increase in average order value", "20% improvement in conversion", "Scalable to 100k QPS"]
     }
   ];
 

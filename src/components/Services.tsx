@@ -1,4 +1,4 @@
-import { MessageSquare, Target, TrendingUp, BarChart3, Eye, Database, Activity, FlaskConical } from "lucide-react";
+import { MessageSquare, Target, TrendingUp, BarChart3, Eye, Database, Activity, FlaskConical, Sparkles } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const Services = () => {
@@ -42,6 +42,11 @@ const Services = () => {
       icon: Activity,
       title: "A/B Testing at Scale",
       description: "Rigorous experimentation frameworks with statistical significance and causal inference"
+    },
+    {
+      icon: Sparkles,
+      title: "Personalisation",
+      description: "User-level customization engines that adapt in real-time to behavior and preferences"
     }
   ];
 

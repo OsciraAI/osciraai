@@ -7,7 +7,8 @@ const Industries = () => {
     "MarTech",
     "Retail",
     "E-commerce",
-    "Healthcare"
+    "Healthcare",
+    "Ride Hailing"
   ];
 
   return (

@@ -10,7 +10,7 @@ const Newsletter = () => {
             Problem Solving Data Science
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Join 10,000+ founders and engineers getting weekly insights on scaling AI systems
+            Join 5000+ founders and engineers getting weekly insights on scaling AI systems
           </p>
           <Button 
             size="lg"

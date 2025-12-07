@@ -1,130 +1,118 @@
-import { Phone, Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import osciraLogo from "@/assets/oscira-logo.png";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/oscira-logo.png";
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const navLinks = [
-    { name: "Home", href: "/", isAnchor: false },
-    { name: "Services", href: "/", anchor: "services", isAnchor: true },
-    { name: "Blog", href: "/blog", isAnchor: false },
-    { name: "Contact", href: "/", anchor: "contact", isAnchor: true }
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const handleAnchorClick = (anchor: string) => {
-    setMobileMenuOpen(false);
-    if (location.pathname === "/") {
-      const element = document.getElementById(anchor);
-      element?.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      const sectionId = href.substring(2);
+      
+      if (location.pathname === '/') {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else if (href === '/') {
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
     } else {
-      // Navigate to home page first, then scroll
-      window.location.href = `/#${anchor}`;
+      navigate(href);
     }
   };
 
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-          <img 
-            src={osciraLogo} 
-            alt="OsciraAI Logo" 
-            className="h-10 w-auto"
-          />
-          <span className="text-xl font-bold">
-            <span className="text-foreground">Oscira</span>
-            <span className="text-primary">AI</span>
-          </span>
-        </Link>
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/#services" },
+    { label: "How We Work", href: "/how-we-work" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/#contact" },
+  ];
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            link.isAnchor ? (
-              <button
-                key={link.name}
-                onClick={() => handleAnchorClick(link.anchor!)}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center">
+            <img 
+              src={logo} 
+              alt="OsciraAI Logo" 
+              className="h-10 md:h-12 w-auto"
+            />
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-muted-foreground hover:text-primary transition-colors font-medium"
               >
-                {link.name}
-              </button>
-            ) : (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`text-sm transition-colors ${
-                  location.pathname === link.href 
-                    ? "text-primary font-medium" 
-                    : "text-muted-foreground hover:text-primary"
-                }`}
-              >
-                {link.name}
-              </Link>
-            )
-          ))}
-        </nav>
-        
-        <div className="flex items-center gap-4">
-          <a 
-            href="tel:+919899376787"
-            className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            <span>+91 98993 76787</span>
-          </a>
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+            className="md:hidden text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border animate-fade-in">
-          <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              link.isAnchor ? (
-                <button
-                  key={link.name}
-                  onClick={() => handleAnchorClick(link.anchor!)}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2"
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <nav className="md:hidden pt-4 pb-2 animate-fade-in">
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-muted-foreground hover:text-primary transition-colors font-medium py-2"
                 >
-                  {link.name}
-                </button>
-              ) : (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`py-2 transition-colors ${
-                    location.pathname === link.href 
-                      ? "text-primary font-medium" 
-                      : "text-muted-foreground hover:text-primary"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              )
-            ))}
-            <a 
-              href="tel:+919899376787"
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors py-2"
-            >
-              <Phone className="w-4 h-4" />
-              <span>+91 98993 76787</span>
-            </a>
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </nav>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };

@@ -7,6 +7,7 @@ import Services from "@/components/Services";
 import CaseStudies from "@/components/CaseStudies";
 import Industries from "@/components/Industries";
 import TechnicalCredibility from "@/components/TechnicalCredibility";
+import GlobalExperience from "@/components/GlobalExperience";
 import FeaturedInsights from "@/components/FeaturedInsights";
 import Newsletter from "@/components/Newsletter";
 import ContactForm from "@/components/ContactForm";
@@ -26,6 +27,7 @@ const Index = () => {
       <CaseStudies />
       <Industries />
       <TechnicalCredibility />
+      <GlobalExperience />
       <FeaturedInsights />
       <Newsletter />
       <div id="contact">

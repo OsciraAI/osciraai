@@ -1,5 +1,6 @@
-import { ExternalLink, Clock, User } from "lucide-react";
+import { ExternalLink, Clock, User, Brain, Users, Car } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { LucideIcon } from "lucide-react";
 
 interface BlogCardProps {
   title: string;
@@ -9,15 +10,30 @@ interface BlogCardProps {
   tags: string[];
   link: string;
   isLatest?: boolean;
+  icon?: LucideIcon;
 }
 
-const BlogCard = ({ title, excerpt, author, readTime, tags, link, isLatest }: BlogCardProps) => {
+const BlogCard = ({ title, excerpt, author, readTime, tags, link, isLatest, icon: Icon }: BlogCardProps) => {
   return (
     <article className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1">
-      <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+      <div className="aspect-video bg-gradient-to-br from-primary/20 via-secondary/10 to-primary/5 relative overflow-hidden flex items-center justify-center">
+        {/* Decorative pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-4 right-4 w-24 h-24 rounded-full border border-primary/30" />
+          <div className="absolute bottom-8 left-8 w-16 h-16 rounded-full border border-secondary/30" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-primary/20" />
+        </div>
+        
+        {/* Icon */}
+        {Icon && (
+          <div className="relative z-10 w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <Icon className="w-10 h-10 text-primary" />
+          </div>
+        )}
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         {isLatest && (
-          <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+          <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground z-10">
             Latest Insight
           </Badge>
         )}

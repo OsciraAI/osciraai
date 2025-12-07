@@ -3,47 +3,41 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, ArrowRight } from "lucide-react";
 
 const ContactForm = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
-    challenge: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const subject = `New Advisory Session Request from ${formData.name}`;
-      const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
-
-Challenge:
-${formData.challenge}
-      `.trim();
-
-      const mailtoLink = `mailto:suppal@gatech.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailtoLink;
-
+      const subject = encodeURIComponent(`OsciraAI Inquiry from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'Not specified'}\n\nMessage:\n${formData.message}`
+      );
+      
+      window.location.href = `mailto:hello@osciraai.com?subject=${subject}&body=${body}`;
+      
       toast({
-        title: "Opening your email client...",
-        description: "We'll get back to you within 24 hours.",
+        title: "Opening email client...",
+        description: "Your message is ready to send via your email client.",
       });
 
-      setFormData({ name: "", email: "", company: "", challenge: "" });
-    } catch (error) {
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch {
       toast({
-        title: "Error",
-        description: "Please try again or contact us directly.",
-        variant: "destructive"
+        title: "Something went wrong",
+        description: "Please try contacting us directly at hello@osciraai.com",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -51,23 +45,23 @@ ${formData.challenge}
   };
 
   return (
-    <section id="contact" className="py-24 bg-card/50">
+    <section className="py-24 bg-gradient-to-b from-card/30 to-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Ready to Build AI That{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Works?
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Book a 30-minute advisory session to discuss your challenge
-            </p>
-          </div>
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Ready to Build AI That{" "}
+            <span className="text-gradient">
+              Scales?
+            </span>
+          </h2>
+          <p className="text-xl text-muted-foreground">
+            Let's discuss how we can solve your toughest problems.
+          </p>
+        </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6 bg-background/80 backdrop-blur p-8 rounded-lg border border-border">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="max-w-xl mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name *
@@ -94,7 +88,6 @@ ${formData.challenge}
                 />
               </div>
             </div>
-
             <div>
               <label htmlFor="company" className="block text-sm font-medium mb-2">
                 Company
@@ -103,45 +96,48 @@ ${formData.challenge}
                 id="company"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                placeholder="Your company"
+                placeholder="Your company (optional)"
               />
             </div>
-
             <div>
-              <label htmlFor="challenge" className="block text-sm font-medium mb-2">
-                What challenge are you trying to solve? *
+              <label htmlFor="message" className="block text-sm font-medium mb-2">
+                Message *
               </label>
               <Textarea
-                id="challenge"
+                id="message"
                 required
-                value={formData.challenge}
-                onChange={(e) => setFormData({ ...formData, challenge: e.target.value })}
-                placeholder="Tell us about your AI/ML challenge..."
-                rows={5}
+                rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder="Tell us about your project or challenge"
               />
             </div>
-
-            <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting..." : "Book Advisory Session"}
+            <Button type="submit" size="lg" className="w-full group" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Get in Touch"}
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
+          </form>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border justify-center">
-              <a 
-                href="mailto:suppal@gatech.edu" 
-                className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          {/* Direct Contact */}
+          <div className="mt-12 pt-8 border-t border-border">
+            <p className="text-center text-muted-foreground mb-6">Or reach out directly:</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <a
+                href="mailto:hello@osciraai.com"
+                className="flex items-center gap-2 text-primary hover:underline"
               >
-                <Mail className="w-4 h-4" />
-                suppal@gatech.edu
+                <Mail className="w-5 h-5" />
+                hello@osciraai.com
               </a>
-              <a 
-                href="tel:+919899376787" 
-                className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              <a
+                href="tel:+919899376787"
+                className="flex items-center gap-2 text-primary hover:underline"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
                 +91 98993 76787
               </a>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>

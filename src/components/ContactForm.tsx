@@ -30,7 +30,7 @@ Challenge:
 ${formData.challenge}
       `.trim();
 
-      const mailtoLink = `mailto:suppal@gatech.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailtoLink = `mailto:hello@osciraai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailtoLink;
 
       toast({
@@ -127,11 +127,11 @@ ${formData.challenge}
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border justify-center">
               <a 
-                href="mailto:suppal@gatech.edu" 
+                href="mailto:hello@osciraai.com" 
                 className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                suppal@gatech.edu
+                hello@osciraai.com
               </a>
               <a 
                 href="tel:+919899376787" 

@@ -1,11 +1,36 @@
-import { Phone } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import osciraLogo from "@/assets/oscira-logo.png";
 
 const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/#services" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/#contact" }
+  ];
+
+  const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
+    if (href.startsWith("/#")) {
+      const id = href.replace("/#", "");
+      if (location.pathname === "/") {
+        const element = document.getElementById(id);
+        element?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.href = href;
+      }
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+        <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
           <img 
             src={osciraLogo} 
             alt="OsciraAI Logo" 
@@ -15,16 +40,93 @@ const Header = () => {
             <span className="text-foreground">Oscira</span>
             <span className="text-primary">AI</span>
           </span>
-        </a>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            link.href.startsWith("/#") ? (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {link.name}
+              </button>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`text-sm transition-colors ${
+                  location.pathname === link.href 
+                    ? "text-primary font-medium" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {link.name}
+              </Link>
+            )
+          ))}
+        </nav>
         
-        <a 
-          href="tel:+919899376787"
-          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-        >
-          <Phone className="w-4 h-4" />
-          <span className="hidden sm:inline">+91 98993 76787</span>
-        </a>
+        <div className="flex items-center gap-4">
+          <a 
+            href="tel:+919899376787"
+            className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            <span>+91 98993 76787</span>
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-background border-t border-border animate-fade-in">
+          <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
+            {navLinks.map((link) => (
+              link.href.startsWith("/#") ? (
+                <button
+                  key={link.name}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2"
+                >
+                  {link.name}
+                </button>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`py-2 transition-colors ${
+                    location.pathname === link.href 
+                      ? "text-primary font-medium" 
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
+            ))}
+            <a 
+              href="tel:+919899376787"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors py-2"
+            >
+              <Phone className="w-4 h-4" />
+              <span>+91 98993 76787</span>
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

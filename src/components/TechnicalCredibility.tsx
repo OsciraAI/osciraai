@@ -16,7 +16,7 @@ const TechnicalCredibility = () => {
     },
     {
       icon: Zap,
-      text: "Sub-100ms latency at 100k QPS in production"
+      text: "Sub-100ms latency at 10k QPS in production"
     }
   ];
 
@@ -30,6 +30,9 @@ const TechnicalCredibility = () => {
               Solved This Before
             </span>
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Proven expertise across enterprise-scale AI solutions
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">

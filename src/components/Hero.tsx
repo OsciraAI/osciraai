@@ -8,7 +8,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Background */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 py-32 text-center animate-fade-in">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
           <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">Multiple Patent Holder | Ex-FAANG Scale</span>
+          <span className="text-sm font-medium text-primary">Multiple Patent Holder | Proven Enterprise Scale</span>
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
@@ -34,7 +34,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-          Engineers with experience building 0-to-1 data science and real-time ML models. Collaborated with SWE teams to build 100k QPS services serving 100M+ users.
+          Experienced data scientists and ML engineers building 0-to-1 data science and real-time ML models. Battle-tested systems serving 100M+ users at 10k QPS.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -51,7 +51,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="animate-counter-up">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">&lt;100ms</div>
-            <div className="text-muted-foreground">Response time at 100k QPS</div>
+            <div className="text-muted-foreground">Response time at 10k QPS</div>
           </div>
           <div className="animate-counter-up" style={{ animationDelay: '0.2s' }}>
             <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">100M+</div>

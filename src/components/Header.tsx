@@ -8,22 +8,20 @@ const Header = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/#services" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/#contact" }
+    { name: "Home", href: "/", isAnchor: false },
+    { name: "Services", href: "/", anchor: "services", isAnchor: true },
+    { name: "Blog", href: "/blog", isAnchor: false },
+    { name: "Contact", href: "/", anchor: "contact", isAnchor: true }
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleAnchorClick = (anchor: string) => {
     setMobileMenuOpen(false);
-    if (href.startsWith("/#")) {
-      const id = href.replace("/#", "");
-      if (location.pathname === "/") {
-        const element = document.getElementById(id);
-        element?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.location.href = href;
-      }
+    if (location.pathname === "/") {
+      const element = document.getElementById(anchor);
+      element?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to home page first, then scroll
+      window.location.href = `/#${anchor}`;
     }
   };
 
@@ -45,10 +43,10 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            link.href.startsWith("/#") ? (
+            link.isAnchor ? (
               <button
                 key={link.name}
-                onClick={() => handleNavClick(link.href)}
+                onClick={() => handleAnchorClick(link.anchor!)}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 {link.name}
@@ -94,10 +92,10 @@ const Header = () => {
         <div className="md:hidden bg-background border-t border-border animate-fade-in">
           <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-              link.href.startsWith("/#") ? (
+              link.isAnchor ? (
                 <button
                   key={link.name}
-                  onClick={() => handleNavClick(link.href)}
+                  onClick={() => handleAnchorClick(link.anchor!)}
                   className="text-left text-muted-foreground hover:text-primary transition-colors py-2"
                 >
                   {link.name}

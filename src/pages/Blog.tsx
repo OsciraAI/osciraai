@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogCard from "@/components/BlogCard";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Brain, Users, Car } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const blogPosts = [
@@ -12,7 +12,8 @@ const blogPosts = [
     readTime: "~8 min",
     tags: ["Algorithms", "Education", "GaTech", "Computer Science"],
     link: "https://www.linkedin.com/pulse/toughest-course-my-gatech-masters-question-graduate-algorithms-uppal-hscgf/",
-    isLatest: true
+    isLatest: true,
+    icon: Brain
   },
   {
     title: "Life Stage Segmentation Powered by LLMs",
@@ -21,7 +22,8 @@ const blogPosts = [
     readTime: "~10 min",
     tags: ["LLMs", "Machine Learning", "Segmentation", "AI Applications"],
     link: "https://www.linkedin.com/pulse/life-stage-segmentation-powered-llms-enhanced-shaurya-uppal-jkjsf/",
-    isLatest: false
+    isLatest: false,
+    icon: Users
   },
   {
     title: "Personalization at Lyft: The Hidden Ride Experience",
@@ -30,7 +32,8 @@ const blogPosts = [
     readTime: "~7 min",
     tags: ["Personalization", "Product Analytics", "Lyft", "ML"],
     link: "https://www.linkedin.com/pulse/personalization-lyft-ride-hiding-experience-ultra-pro-shaurya-uppal/",
-    isLatest: false
+    isLatest: false,
+    icon: Car
   }
 ];
 

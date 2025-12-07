@@ -1,59 +1,50 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Mail } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import heroImage from "@/assets/hero-gradient.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToCaseStudies = () => {
-    document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background with gradient */}
+      {/* Animated Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[var(--gradient-hero)]" />
-        <div className="absolute inset-0 bg-[var(--gradient-mesh)]" />
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+        <img 
+          src={heroImage} 
+          alt="Abstract neural network visualization" 
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32 text-center animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+          <Sparkles className="w-4 h-4 text-primary" />
+          <span className="text-sm font-medium text-primary">Multiple Patent Holder | Proven Enterprise Scale</span>
+        </div>
+
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-          AI Solutions That{" "}
-          <span className="text-gradient">
-            Scale
+          We Build AI That{" "}
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Scales
           </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-          No fluff. Just battle-tested data science that delivers measurable results.
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+          Experienced data scientists and ML engineers building 0-to-1 data science and real-time ML models. Battle-tested systems serving 100M+ users at 10k QPS.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <Button size="lg" onClick={scrollToContact} className="group">
-            Get Started
+            Book Advisory Session
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button size="lg" variant="outline" onClick={scrollToCaseStudies}>
+          <Button size="lg" variant="outline" onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}>
             View Our Work
           </Button>
-        </div>
-
-        {/* Contact Info */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16 text-muted-foreground">
-          <a href="tel:+919899376787" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Phone className="w-4 h-4" />
-            <span>+91 98993 76787</span>
-          </a>
-          <a href="mailto:hello@osciraai.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Mail className="w-4 h-4" />
-            <span>hello@osciraai.com</span>
-          </a>
         </div>
 
         {/* Stats */}
@@ -67,8 +58,8 @@ const Hero = () => {
             <div className="text-muted-foreground">User systems deployed</div>
           </div>
           <div className="animate-counter-up" style={{ animationDelay: '0.4s' }}>
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">Multiple</div>
-            <div className="text-muted-foreground">Patents & Research Papers</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">Multiple Patents</div>
+            <div className="text-muted-foreground">Including Ad-Personalisation at Scale</div>
           </div>
         </div>
       </div>

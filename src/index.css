@@ -2,67 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* OsciraAI Design System - Brand Colors from Logo */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
-    /* Navy Blue Primary: #1e3a5f */
-    --background: 214 52% 24%;
+    --background: 228 50% 10%;
     --foreground: 210 40% 98%;
 
-    /* Card slightly lighter than background */
-    --card: 214 48% 28%;
+    --card: 228 45% 12%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 214 48% 28%;
+    --popover: 228 45% 12%;
     --popover-foreground: 210 40% 98%;
 
-    /* Accent Light Blue: #60b5e8 */
-    --primary: 200 75% 64%;
-    --primary-foreground: 214 52% 15%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 228 50% 10%;
 
-    /* Secondary Blue: #a8d8f0 */
-    --secondary: 200 70% 80%;
-    --secondary-foreground: 214 52% 15%;
+    --secondary: 258 90% 66%;
+    --secondary-foreground: 210 40% 98%;
 
-    /* Muted variations */
-    --muted: 214 30% 35%;
-    --muted-foreground: 210 20% 65%;
+    --muted: 228 30% 20%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 200 75% 64%;
-    --accent-foreground: 214 52% 15%;
+    --accent: 258 90% 66%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 30% 35%;
-    --input: 214 30% 30%;
-    --ring: 200 75% 64%;
+    --border: 228 30% 20%;
+    --input: 228 30% 18%;
+    --ring: 199 89% 48%;
 
     --radius: 0.75rem;
     
     --success: 158 64% 52%;
     
-    /* Brand gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(200 75% 64%), hsl(200 70% 80%));
-    --gradient-hero: linear-gradient(135deg, hsl(214 52% 20%) 0%, hsl(214 52% 15%) 100%);
-    --gradient-mesh: radial-gradient(at 0% 0%, hsl(200 75% 64% / 0.15) 0px, transparent 50%),
-                     radial-gradient(at 100% 100%, hsl(200 70% 80% / 0.15) 0px, transparent 50%);
-    --shadow-glow: 0 0 40px hsl(200 75% 64% / 0.3);
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%), hsl(258 90% 66%));
+    --gradient-mesh: radial-gradient(at 0% 0%, hsl(199 89% 48% / 0.2) 0px, transparent 50%),
+                     radial-gradient(at 100% 100%, hsl(258 90% 66% / 0.2) 0px, transparent 50%);
+    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
+
     --sidebar-foreground: 240 5.3% 26.1%;
+
     --sidebar-primary: 240 5.9% 10%;
+
     --sidebar-primary-foreground: 0 0% 98%;
+
     --sidebar-accent: 240 4.8% 95.9%;
+
     --sidebar-accent-foreground: 240 5.9% 10%;
+
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 200 75% 64%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 214 52% 24%;
+    --background: 228 50% 10%;
     --foreground: 210 40% 98%;
   }
 }
@@ -74,12 +76,5 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-}
-
-@layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 }

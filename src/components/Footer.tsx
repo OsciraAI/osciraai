@@ -55,11 +55,11 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground mb-4">Get in Touch</h4>
             <div className="flex flex-col gap-2 text-sm">
               <a 
-                href="mailto:suppal@gatech.edu"
+                href="mailto:hello@osciraai.com"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors justify-center md:justify-end"
               >
                 <Mail className="w-4 h-4" />
-                suppal@gatech.edu
+                hello@osciraai.com
               </a>
               <a 
                 href="tel:+919899376787"

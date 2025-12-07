@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          © 2024 OsciraAI. All rights reserved.
+          © 2026 OsciraAI. All rights reserved.
         </div>
       </div>
     </footer>

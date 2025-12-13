@@ -1,4 +1,4 @@
-import { Briefcase, Rocket, GraduationCap, Users, CheckCircle, ExternalLink } from "lucide-react";
+import { Briefcase, Rocket, GraduationCap, Users, CheckCircle, ExternalLink, IndianRupee, Calendar, Laptop } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,7 +9,8 @@ const Careers = () => {
     "Strong foundation in Python and machine learning frameworks (scikit-learn, TensorFlow, or PyTorch)",
     "Experience with data analysis and visualization tools",
     "Excellent problem-solving skills and attention to detail",
-    "Strong communication skills and ability to work in a collaborative environment"
+    "Strong communication skills and ability to work in a collaborative environment",
+    "Must have own laptop/hardware for remote work"
   ];
 
   const offerings = [
@@ -62,6 +63,14 @@ const Careers = () => {
                     <span className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
                       Remote
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <IndianRupee className="w-4 h-4" />
+                      ₹20k - ₹30k/month
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      5 days/week
                     </span>
                   </div>
                 </div>

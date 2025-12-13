@@ -26,19 +26,50 @@ const Careers = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary/10 via-background to-accent/10">
-        <div className="container mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
-            <Rocket className="w-4 h-4" />
-            <span className="text-sm font-medium">We're Growing!</span>
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-accent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
+        
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl" />
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-10" style={{ 
+          backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white/90 mb-8 border border-white/20">
+            <Rocket className="w-4 h-4 animate-bounce" />
+            <span className="text-sm font-semibold tracking-wide">We're Hiring!</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Join Our <span className="text-primary">Team</span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Shape the Future of <br />
+            <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent">
+              AI with Us
+            </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We're looking for talented individuals passionate about AI and data science 
-            to help us build intelligent solutions that scale.
+          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            Be part of a team that's transforming industries with cutting-edge AI solutions. 
+            Your ideas will power the next generation of intelligent systems.
           </p>
+          
+          {/* Tech icons floating */}
+          <div className="flex justify-center gap-8 mt-12">
+            <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+              <Briefcase className="w-8 h-8 text-white/80" />
+            </div>
+            <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+              <GraduationCap className="w-8 h-8 text-white/80" />
+            </div>
+            <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+              <Rocket className="w-8 h-8 text-white/80" />
+            </div>
+          </div>
         </div>
       </section>
 

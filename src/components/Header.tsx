@@ -11,6 +11,7 @@ const Header = () => {
     { name: "Home", href: "/", isAnchor: false },
     { name: "Services", href: "/", anchor: "services", isAnchor: true },
     { name: "Blog", href: "/blog", isAnchor: false },
+    { name: "We're Hiring", href: "/careers", isAnchor: false },
     { name: "Contact", href: "/", anchor: "contact", isAnchor: true }
   ];
 

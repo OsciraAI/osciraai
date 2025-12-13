@@ -1,7 +1,17 @@
-import { Briefcase, Rocket, GraduationCap, Users, CheckCircle, ExternalLink, IndianRupee, Calendar, Laptop } from "lucide-react";
+import { Briefcase, Rocket, GraduationCap, Users, CheckCircle, ExternalLink, IndianRupee, Calendar, Laptop, ChevronRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Careers = () => {
   const requirements = [
@@ -21,12 +31,99 @@ const Careers = () => {
     "Opportunity for full-time conversion based on performance"
   ];
 
+  // JobPosting structured data
+  const jobPostingSchema = {
+    "@context": "https://schema.org/",
+    "@type": "JobPosting",
+    "title": "Data Scientist Intern",
+    "description": "Join OsciraAI as a Data Scientist Intern and work on cutting-edge AI projects that solve real business problems. You'll collaborate with our experienced team to develop machine learning models, build AI agents, and implement RAG solutions for enterprise clients.",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "OsciraAI",
+      "value": "DSI-2025-001"
+    },
+    "datePosted": "2025-01-13",
+    "validThrough": "2025-06-30",
+    "employmentType": "INTERN",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "OsciraAI",
+      "sameAs": "https://www.osciraai.com",
+      "logo": "https://www.osciraai.com/favicon.png"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    },
+    "jobLocationType": "TELECOMMUTE",
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "INR",
+      "value": {
+        "@type": "QuantitativeValue",
+        "minValue": 20000,
+        "maxValue": 30000,
+        "unitText": "MONTH"
+      }
+    },
+    "skills": ["Python", "Machine Learning", "TensorFlow", "PyTorch", "Data Analysis", "AI", "Data Science"],
+    "qualifications": "Currently pursuing or recently completed a degree in Data Science, Computer Science, Statistics, or related field",
+    "responsibilities": "Develop machine learning models, build AI agents, implement RAG solutions for enterprise clients",
+    "industry": "Artificial Intelligence, Machine Learning",
+    "applicationContact": {
+      "@type": "ContactPoint",
+      "url": "https://forms.gle/AW833M3trTHuka4G6"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Careers at Oscira AI | Join Our AI Team | Data Scientist Intern</title>
+        <meta name="description" content="Join Oscira AI's innovative team. We're hiring a Data Scientist Intern to work on cutting-edge AI/ML projects. Apply now!" />
+        <meta name="keywords" content="AI careers, data scientist intern, machine learning jobs, AI internship India, data science jobs, ML engineer, artificial intelligence careers" />
+        <link rel="canonical" href="https://www.osciraai.com/careers" />
+        <meta property="og:title" content="Careers at Oscira AI | Join Our AI Team" />
+        <meta property="og:description" content="Join Oscira AI's innovative team. We're hiring a Data Scientist Intern to work on cutting-edge AI/ML projects." />
+        <meta property="og:url" content="https://www.osciraai.com/careers" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Careers at Oscira AI | Data Scientist Intern" />
+        <meta name="twitter:description" content="Join Oscira AI's innovative team. We're hiring for AI/ML roles!" />
+        <script type="application/ld+json">
+          {JSON.stringify(jobPostingSchema)}
+        </script>
+      </Helmet>
+
       <Header />
       
+      {/* Breadcrumb Navigation */}
+      <div className="container mx-auto px-6 pt-24 pb-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/" className="flex items-center gap-1 text-muted-foreground hover:text-foreground">
+                  <Home className="w-4 h-4" />
+                  Home
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator>
+              <ChevronRight className="w-4 h-4" />
+            </BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-primary font-medium">Careers</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-8 pb-20 overflow-hidden">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-accent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />

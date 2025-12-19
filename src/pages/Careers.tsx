@@ -93,6 +93,9 @@ const Careers = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Careers at Oscira AI | Data Scientist Intern" />
         <meta name="twitter:description" content="Join Oscira AI's innovative team. We're hiring for AI/ML roles!" />
+        <meta name="twitter:url" content="https://www.osciraai.com/careers" />
+        <meta name="twitter:image" content="https://www.osciraai.com/og-image.png" />
+        <meta property="og:image" content="https://www.osciraai.com/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify(jobPostingSchema)}
         </script>

@@ -2,16 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D3T39GLE5H"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D3T39GLE5H');
-    </script>
+    <!-- DNS Prefetch & Preconnect for third parties -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/favicon.png" as="image" type="image/png">
     
     <title>OsciraAI - AI Solutions That Scale</title>
     <meta name="description" content="OsciraAI - AI solutions that scale. No fluff. Expert AI Agents, RAG systems, and custom ML solutions. Multiple patents and research papers. Proven track record in data science." />
@@ -45,5 +46,24 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Defer Google Analytics until after page load -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var gtmScript = document.createElement('script');
+          gtmScript.async = true;
+          gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-D3T39GLE5H';
+          document.head.appendChild(gtmScript);
+          
+          gtmScript.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D3T39GLE5H');
+          };
+        }, 2000);
+      });
+    </script>
   </body>
 </html>

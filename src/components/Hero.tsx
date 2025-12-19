@@ -15,6 +15,11 @@ const Hero = () => {
           src={heroImage} 
           alt="Abstract neural network visualization" 
           className="w-full h-full object-cover opacity-40"
+          width={1920}
+          height={1080}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
@@ -38,11 +43,11 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button size="lg" onClick={scrollToContact} className="group">
+          <Button size="lg" onClick={scrollToContact} className="group min-h-[48px]">
             Book Advisory Session
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button size="lg" variant="outline" onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}>
+          <Button size="lg" variant="outline" onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })} className="min-h-[48px]">
             View Our Work
           </Button>
         </div>

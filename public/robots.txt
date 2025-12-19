@@ -19,6 +19,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://osciraai.com/sitemap.xml
-
 Sitemap: https://www.osciraai.com/sitemap.xml

@@ -59,6 +59,10 @@ const Careers = () => {
       }
     },
     "jobLocationType": "TELECOMMUTE",
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "IN"
+    },
     "baseSalary": {
       "@type": "MonetaryAmount",
       "currency": "INR",

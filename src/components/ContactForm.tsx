@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -139,6 +139,16 @@ ${formData.challenge}
               >
                 <Phone className="w-4 h-4" />
                 +91 98993 76787
+              </a>
+              <a
+                href="https://www.linkedin.com/company/osciraai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="OsciraAI on LinkedIn"
+                className="flex items-center justify-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin className="w-4 h-4" />
+                Connect on LinkedIn
               </a>
             </div>
           </form>

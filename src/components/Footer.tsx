@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import osciraLogo from "@/assets/oscira-logo.png";
 
@@ -75,6 +75,16 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 LinkedIn Newsletter
+              </a>
+              <a
+                href="https://www.linkedin.com/company/osciraai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="OsciraAI on LinkedIn"
+                className="flex items-center gap-2 text-muted-foreground hover:text-[#0A66C2] transition-colors justify-center md:justify-end"
+              >
+                <Linkedin className="w-5 h-5" />
+                LinkedIn
               </a>
             </div>
           </div>

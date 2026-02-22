@@ -1,19 +1,8 @@
 import { MessageSquare, Target, TrendingUp, BarChart3, Eye, Database, Activity, FlaskConical, Sparkles, BarChart2, Globe, Bot } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-interface Service {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement> & { size?: number | string }>;
-  title: string;
-  description: string;
-  tagline?: string;
-  fullDescription?: string;
-  bullets?: string[];
-  cta?: string;
-}
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const Services = () => {
-  const services: Service[] = [
+  const services = [
     {
       icon: MessageSquare,
       title: "LLM & Chatbot Solutions",
@@ -62,44 +51,17 @@ const Services = () => {
     {
       icon: BarChart2,
       title: "MarTech & Campaign Intelligence",
-      tagline: "Run smarter campaigns. Spend less. Convert more.",
-      description: "Leverage AI to continuously optimise your ad campaigns with real-time A/B testing, creative performance scoring, and campaign fatigue detection.",
-      fullDescription: "Our system identifies when audiences are burning out on your creatives and automatically flags or rotates them — keeping your ROAS healthy and your sales climbing.",
-      bullets: [
-        "AI-driven A/B Testing for ads, copy, and landing pages",
-        "Campaign Fatigue Detection before performance drops",
-        "Real-time budget reallocation recommendations",
-        "Sales uplift tracking with AI attribution"
-      ],
-      cta: "Optimise My Campaigns →"
+      description: "AI-powered campaign optimisation with A/B testing, fatigue detection, and real-time budget reallocation"
     },
     {
       icon: Globe,
       title: "High-Performance Website Design",
-      tagline: "Go live fast. Rank higher. Convert better.",
-      description: "We design and ship conversion-optimised websites built on best practices — fast-loading, SEO-structured, and mobile-first.",
-      fullDescription: "Every site includes full domain setup and professional company email configuration so you're up and running end-to-end, not just design-done.",
-      bullets: [
-        "SEO-first architecture & on-page optimisation",
-        "Core Web Vitals & performance-tuned pages",
-        "Domain setup + company email (Google Workspace / Microsoft 365)",
-        "Fast turnaround with no compromise on quality"
-      ],
-      cta: "Launch My Website →"
+      description: "Conversion-optimised, SEO-first websites with domain setup and company email — live fast"
     },
     {
       icon: Bot,
       title: "AI User Acquisition Manager",
-      tagline: "Your always-on growth analyst — powered by AI.",
-      description: "Stop guessing on budget calls. Our AI User Acquisition Manager ingests your campaign reports, analyses KPIs, and delivers clear data-backed recommendations.",
-      fullDescription: "Scale this channel, pause that creative, shift budget here. It monitors CTR, CPA, and funnel metrics to keep your growth engine running at peak efficiency.",
-      bullets: [
-        "Budget increase / decrease recommendations from your real data",
-        "KPI monitoring with CTR improvement strategies",
-        "Smart campaign recommendations tailored to your goals",
-        "Report ingestion from Meta Ads, Google Ads, TikTok Ads, and more"
-      ],
-      cta: "Automate My UA →"
+      description: "Always-on growth analyst that monitors KPIs and delivers data-backed budget recommendations"
     }
   ];
 
@@ -125,33 +87,8 @@ const Services = () => {
               <CardHeader>
                 <service.icon className="w-10 h-10 mb-4 text-primary group-hover:text-secondary transition-colors" />
                 <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                {service.tagline && (
-                  <p className="text-sm font-medium text-secondary italic">{service.tagline}</p>
-                )}
                 <CardDescription className="text-base">{service.description}</CardDescription>
               </CardHeader>
-              {(service.fullDescription || service.bullets || service.cta) && (
-                <CardContent className="space-y-4">
-                  {service.fullDescription && (
-                    <p className="text-sm text-muted-foreground">{service.fullDescription}</p>
-                  )}
-                  {service.bullets && (
-                    <ul className="space-y-2">
-                      {service.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="text-primary mt-1">•</span>
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {service.cta && (
-                    <Button variant="outline" size="sm" className="w-full mt-2" asChild>
-                      <a href="/#contact">{service.cta}</a>
-                    </Button>
-                  )}
-                </CardContent>
-              )}
             </Card>
           ))}
         </div>

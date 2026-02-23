@@ -1,4 +1,4 @@
-import { Phone, Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import osciraLogo from "@/assets/oscira-logo.png";
@@ -12,7 +12,7 @@ const Header = () => {
     { name: "Services", href: "/", anchor: "services", isAnchor: true },
     { name: "Blog", href: "/blog", isAnchor: false },
     { name: "We're Hiring", href: "/careers", isAnchor: false },
-    { name: "Contact", href: "/", anchor: "contact", isAnchor: true }
+    { name: "Contact", href: "/", anchor: "contact", isAnchor: true },
   ];
 
   const handleAnchorClick = (anchor: string) => {
@@ -75,11 +75,11 @@ const Header = () => {
         
         <div className="flex items-center gap-4">
           <a 
-            href="tel:+919899376787"
-            className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[48px] px-2"
+            href="mailto:hello@osciraai.com"
+            className="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-primary-foreground bg-primary hover:bg-primary/90 rounded-full px-4 py-2 min-h-[40px] transition-colors"
           >
-            <Phone className="w-4 h-4" />
-            <span>+91 98993 76787</span>
+            <Mail className="w-4 h-4" />
+            <span>hello@osciraai.com</span>
           </a>
 
           {/* Mobile Menu Button */}
@@ -122,11 +122,11 @@ const Header = () => {
               )
             ))}
             <a 
-              href="tel:+919899376787"
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors py-3 min-h-[48px]"
+              href="mailto:hello@osciraai.com"
+              className="flex items-center gap-2 text-primary font-medium transition-colors py-3 min-h-[48px]"
             >
-              <Phone className="w-4 h-4" />
-              <span>+91 98993 76787</span>
+              <Mail className="w-4 h-4" />
+              <span>hello@osciraai.com</span>
             </a>
           </nav>
         </div>

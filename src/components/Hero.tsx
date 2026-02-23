@@ -32,24 +32,40 @@ const Hero = () => {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-          We Build AI That{" "}
+          AI Solutions Built for{" "}
           <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Scales
+            Global Scale
           </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-          Experienced data scientists and ML engineers building 0-to-1 data science and real-time ML models. Battle-tested systems serving 100M+ users at 10k QPS.
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
+          From Dubai to London, Sydney to San Francisco — OsciraAI helps forward-thinking teams automate, build, and grow with intelligent AI systems.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button size="lg" onClick={scrollToContact} className="group min-h-[48px]">
-            Book Advisory Session
-            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        <p className="text-sm text-muted-foreground mb-12">
+          Serving clients across Europe, EMEA, North America, Australia &amp; Singapore
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <Button size="lg" asChild className="group min-h-[48px]">
+            <a href="mailto:hello@osciraai.com">
+              Get in Touch → hello@osciraai.com
+            </a>
           </Button>
           <Button size="lg" variant="outline" onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })} className="min-h-[48px]">
             View Our Work
           </Button>
+        </div>
+
+        {/* Flag strip */}
+        <div className="flex items-center justify-center gap-3 text-2xl mb-16">
+          <span title="United Kingdom">🇬🇧</span>
+          <span title="European Union">🇪🇺</span>
+          <span title="France">🇫🇷</span>
+          <span title="United States">🇺🇸</span>
+          <span title="United Arab Emirates">🇦🇪</span>
+          <span title="Australia">🇦🇺</span>
+          <span title="Singapore">🇸🇬</span>
         </div>
 
         {/* Stats */}

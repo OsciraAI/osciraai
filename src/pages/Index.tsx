@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Credentials from "@/components/Credentials";
+import WorkedWith from "@/components/WorkedWith";
 import ProblemStatement from "@/components/ProblemStatement";
 import AICapabilities from "@/components/AICapabilities";
 import Services from "@/components/Services";
@@ -38,19 +39,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>OsciraAI - AI Solutions That Scale | AI Agents, RAG & ML</title>
-        <meta name="description" content="Expert AI & Data Science solutions. Building intelligent AI Agents, RAG systems, and custom ML models. Multiple patents and research papers. No fluff, just results." />
-        <meta name="keywords" content="AI solutions, machine learning, AI agents, RAG systems, LLM, enterprise AI, data science, custom ML" />
+        <title>OsciraAI — AI Solutions That Scale | Europe, EMEA, US, Australia, Singapore</title>
+        <meta name="description" content="OsciraAI delivers intelligent AI solutions for businesses across Europe, EMEA, North America, Australia and Singapore. Trusted by RateCity Australia, ProjectPro US, Fi Money India, and Move Up Media France. Reach us at hello@osciraai.com" />
+        <meta name="keywords" content="AI solutions, machine learning, AI agents, RAG systems, LLM, enterprise AI, data science, custom ML, Europe AI, EMEA AI, Singapore AI" />
         <link rel="canonical" href="https://www.osciraai.com/" />
-        <meta property="og:title" content="OsciraAI - AI Solutions That Scale" />
-        <meta property="og:description" content="Expert AI & Data Science solutions. Building intelligent AI Agents, RAG systems, and custom ML models." />
-        <meta property="og:url" content="https://www.osciraai.com/" />
+        <meta property="og:title" content="OsciraAI — AI Solutions That Scale" />
+        <meta property="og:description" content="AI-powered solutions for global teams. Worked with RateCity Australia, ProjectPro US, Fi Money India, Move Up Media France. Serving EU, EMEA, UK, US, AUS & SG." />
+        <meta property="og:url" content="https://osciraai.com" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.osciraai.com/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="OsciraAI - AI Solutions That Scale" />
-        <meta name="twitter:description" content="Expert AI & Data Science solutions. Building intelligent AI Agents, RAG systems, and custom ML models." />
-        <meta name="twitter:url" content="https://www.osciraai.com/" />
+        <meta name="twitter:title" content="OsciraAI — AI Solutions That Scale" />
+        <meta name="twitter:description" content="AI-powered solutions for global teams. Worked with RateCity Australia, ProjectPro US, Fi Money India, Move Up Media France." />
+        <meta name="twitter:url" content="https://osciraai.com" />
         <meta name="twitter:image" content="https://www.osciraai.com/og-image.png" />
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
@@ -58,6 +59,7 @@ const Index = () => {
       </Helmet>
       <Header />
       <Hero />
+      <WorkedWith />
       <Credentials />
       <ProblemStatement />
       <AICapabilities />
